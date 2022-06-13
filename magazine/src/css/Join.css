@@ -1,0 +1,53 @@
+.join {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+.join_main{
+  display: flex;
+}
+.join_main .join_right{
+  width: 380px;
+  height: 500px;
+  border: 1px solid #DBDBDB;
+  margin-top: 25px;
+  text-align: center;
+  background-color: white;
+  
+}
+.join_main .join_right img{
+  width: 200px;
+}
+.join_main .join_right .join_signup{
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-items: center;
+  margin-left: 50px;
+}
+.join_main .join_right .join_signup .join_text{
+  width: 258px;
+  height: 36px;
+  margin: 5px;
+  border: 1px solid #DBDBDB;
+  background-color: #FAFAFA;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+.join_main .join_right .join_signup .join_bt{
+  width: 273px;
+   height: 36px;
+   border-radius: 5px;
+   font-weight: bold;
+   margin-top: 5px;
+   margin-right: 40px;
+   border: 1px solid #0395F6;
+   background-color: #0395F6;
+   color: white;
+   cursor: pointer;
+}
+.join_main .join_right .join_signup{
+  margin-top: 45px;
+}

@@ -1,0 +1,19 @@
+.ba {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.ba .ba_container{
+  display: flex;
+  margin-top: 20px;
+  border: 1px solid #dbdbdb;
+  padding: 20px;
+}
+.ba .ba_container img {
+  width: 100px;
+  margin-right: 20px;
+}
+.ba .ba_container span {
+  font-size: 30px;
+  font-weight: bold;
+}

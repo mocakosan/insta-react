@@ -1,0 +1,28 @@
+{
+  "board_list": [
+    {
+      
+      "board_id": 1,
+      "content": "front", 
+			"user_id": "user",
+      "like_id":1,
+      "updatedAt":12
+    },
+    {
+      
+      "board_id": 2,
+      "content": "back", 
+			"user_id": "user",
+      "like_id":2,
+      "updatedAt":12
+    },
+    {
+      
+      "board_id": 3,
+      "content": "full", 
+			"user_id": "user",
+      "like_id":3,
+      "updatedAt":12
+    }
+  ]
+}

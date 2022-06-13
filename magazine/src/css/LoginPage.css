@@ -1,0 +1,53 @@
+.lg {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+.lg_main{
+  display: flex;
+}
+.lg_main .lg_right{
+  width: 380px;
+  height: 350px;
+  border: 1px solid #DBDBDB;
+  margin-top: 25px;
+  text-align: center;
+  background-color: white;
+  
+}
+.lg_main .lg_right img{
+  width: 200px;
+}
+.lg_main .lg_right .lg_signin{
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-items: center;
+  margin-left: 50px;
+}
+.lg_main .lg_right .lg_signin .lg_text{
+  width: 258px;
+  height: 36px;
+  margin: 5px;
+  border: 1px solid #DBDBDB;
+  background-color: #FAFAFA;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+.lg_main .lg_right .lg_signin .lg_bt{
+  width: 270px;
+   height: 36px;
+   border-radius: 5px;
+   font-weight: bold;
+   margin-top: 5px;
+   margin-right: 45px;
+   border: 1px solid #0395F6;
+   background-color: #0395F6;
+   color: white;
+   cursor: pointer;
+}
+.lg_main .lg_right .lg_signup{
+  margin-top: 45px;
+}
