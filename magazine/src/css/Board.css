@@ -74,4 +74,6 @@ border-top: 1px solid #dbdbdb;
   width: 80px;
   cursor: pointer;
   right: 350px;
+  position: fixed;
+  bottom: 0;
 }

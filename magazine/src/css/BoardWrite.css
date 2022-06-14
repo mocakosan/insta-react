@@ -2,35 +2,15 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-}
-.uploader-wrapper{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
-.img-wrapper{
-      margin: 50px 0 20px 0;
+.bw input{
+  width: 200px;
 }
-.img-wrapper img{
-          width: 200px;
-          height: 200px;
+.bw textarea {
+  width: 300px;
 }
-.img-spinner{
-          width: 200px;
-          height: 200px;
-}
-  
-.upload-button{
- 
-}
-.upload-button button{
-  margin: 0 10px;
-  background-color: #0395F6;
-  border: 1px solid #0395F6;
-  border-radius: 8px;
-  color: white;
-  width: 100px;
-  height: 50px;
-}
+
   

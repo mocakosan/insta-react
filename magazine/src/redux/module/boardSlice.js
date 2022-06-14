@@ -1,20 +1,28 @@
 import {createSlice} from "@reduxjs/toolkit"; 
 
+const initialState= {
+  board_list:[],
+  board:[]
+}
+
 const boardSlice =  createSlice({
-  name:"board_list",
-  initialState: {
-      
-  },
+  name:"board",
+  initialState,
   reducers: {
     createBoard: (state,action) => {
-      state.board = [...state.board,action.payload];
+      state.board.push(action.payload.board_data);
     },
-    loadBoard: (state, action) => {
-      return state
-    }
+    loadBoard: (state,action) => {
+      
+    },
+    setBoard: (state, action) => {
+      // console.log(state);
+       state.board = action.payload.board;
+      
+    },
   },
 
 });
 
-export const {loadBoard,createBoard} = boardSlice.actions;
-export default boardSlice.reducers; 
+export const {loadBoard,createBoard,setBoard} = boardSlice.actions;
+export default boardSlice.reducer; 

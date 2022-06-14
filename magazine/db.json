@@ -1,10 +1,10 @@
 {
   "board_list": [
     {
-      
+
       "board_id": 1,
       "content": "front", 
-			"user_id": "user",
+			"user_id": "장산",
       "like_id":1,
       "updatedAt":12
     },
@@ -12,17 +12,17 @@
       
       "board_id": 2,
       "content": "back", 
-			"user_id": "user",
+			"user_id": "현승범",
       "like_id":2,
-      "updatedAt":12
+      "updatedAt":13
     },
     {
       
       "board_id": 3,
       "content": "full", 
-			"user_id": "user",
+			"user_id": "장경태",
       "like_id":3,
-      "updatedAt":12
+      "updatedAt":14
     }
   ]
 }
