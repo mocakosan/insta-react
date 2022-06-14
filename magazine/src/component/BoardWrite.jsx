@@ -34,7 +34,7 @@ function BoardWrite(props) {
     img_ref.current.value = "";
     content_ref.current.value = "";
 
-    const res = axios.post("http://localhost:5001/til_list", board_data);
+    const res = axios.post("http://13.209.99.119/board", board_data);
     dispatch(createBoard({ board_data: board_data }));
     navigate(-1);
   };
@@ -49,6 +49,7 @@ function BoardWrite(props) {
       
       <p>게시글 내용</p>
       <textarea ref={content_ref}></textarea>
+      
       
       <Link to='/'>
       <button onClick={onSave}>추가하기</button>
