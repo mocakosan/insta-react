@@ -10,7 +10,7 @@ const boardSlice =  createSlice({
   initialState,
   reducers: {
     createBoard: (state,action) => {
-      state.board.push(action.payload.board_data);
+      state.board.push(action.payload.board);
     },
     loadBoard: (state,action) => {
       
