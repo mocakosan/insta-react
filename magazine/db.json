@@ -3,26 +3,12 @@
     {
 
       "board_id": 1,
+      "createdAt": "2022-06-15T02:55:12.221459",
+      "imageLink": "https://hanghae-bucket.s3.ap-northeast-2.amazonaws.com/mydir/9351c276-dc05-402b-ad34-2cadd46407389c19aa4b397f3563408dd414a7ef84f5.jpg",
       "content": "front", 
-			"user_id": "장산",
-      "like_id":1,
-      "updatedAt":12
-    },
-    {
+      "layout": 1,
+      "likesList":[]
       
-      "board_id": 2,
-      "content": "back", 
-			"user_id": "현승범",
-      "like_id":2,
-      "updatedAt":13
-    },
-    {
-      
-      "board_id": 3,
-      "content": "full", 
-			"user_id": "장경태",
-      "like_id":3,
-      "updatedAt":14
     }
   ]
 }

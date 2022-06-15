@@ -89,7 +89,7 @@ function Join(props) {
         <div className='join_right'>
           <img className='join_logo' src={insta_logo}/>
           <div className='join_signup'>
-          <input className='join_text' ref={email_ref} text="이메일" type="email" typeName="email" onChange={onChangeEmail} placeholder='이메일을 입력해주세요'/>
+          <input className='join_text' ref={email_ref} text="이메일" type="email"  onChange={onChangeEmail} placeholder='이메일을 입력해주세요'/>
           {email.length > 0 && <span className={`message ${isEmail ? 'success' : 'error'}`}>{emailMessage}</span>}
 
           <input className='join_text' ref={nickname_ref} type="text" placeholder='닉네임을 입력하세요'/>
@@ -98,10 +98,10 @@ function Join(props) {
             className='join_text'
             ref={password_ref}
             onChange={onChangePassword}
-            passwordText="비밀번호 (숫자+영문자+특수문자 조합으로 8자리 이상)"
+            
             title="비밀번호"
             type='password'
-            typeTitle="password"
+            
             placeholder='비밀번호를 입력하세요'
           />
           {password.length > 0 && (
@@ -111,9 +111,9 @@ function Join(props) {
             <input
             className='join_text'
             onChange={onChangePasswordConfirm}
-            passwordText=" "
+            
             type="password"
-            typeTitle="passwordConfirm"
+            
             placeholder='비밀번호를 다시 입력하세요'
           />
           {passwordConfirm.length > 0 && (

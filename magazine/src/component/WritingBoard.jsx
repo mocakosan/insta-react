@@ -34,7 +34,7 @@ function BoardWrite(props) {
     img_ref.current.value = "";
     content_ref.current.value = "";
 
-    const res = axios.post("http://13.209.99.119/board", board_data);
+    const res = axios.post("http://3.35.233.99/api/board", board_data);
     dispatch(createBoard({ board_data: board_data }));
     navigate(-1);
   };
@@ -46,6 +46,11 @@ function BoardWrite(props) {
       <h1>게시물 작성</h1>
       <input type="file" accept="image/*" ref={img_ref}/>
       <input type="text" placeholder='username' ref={user_id_ref}/>
+
+      <h1>레이아웃 선택</h1>
+      <input type="radio" name='layout' id='right' value='right'>
+        <label for='right'>오른쪽에 이미지 왼쪽에 텍스트</label>
+      </input>
       
       <p>게시글 내용</p>
       <textarea ref={content_ref}></textarea>
