@@ -65,8 +65,8 @@ function Board(props) {
         
             <div className='b_head' >
               <img src={pp1} />
-              <span className='UN'>{e.user_Nickname}</span>
-              <span>{e.board_id}</span>
+              <span className='UN'>{e.userNickname}</span>
+              
               <span className='time'>{e.createdAt}</span>
               <Link to='/BoardUpdate'>
                 <button>수정</button>
@@ -74,7 +74,7 @@ function Board(props) {
             </div>
             <div className='b_img'>
                 <Link to='/BoardDetail'>
-                  {e.imageLink}
+                  <img src={e.imageLink} alt="" width="300px"/>
                 </Link>
             </div>
             <div className='b_container'>

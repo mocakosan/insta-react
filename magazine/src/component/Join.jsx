@@ -74,10 +74,10 @@ function Join(props) {
   const boardMutation = useMutation(
     (board) => axios.post("http://3.35.233.99/api/register", board), {
       onSuccess: () => {
-        
+        navigate('/');
       }
     });
-  
+ 
 
   return (
     <div className='join'>
@@ -130,7 +130,7 @@ function Join(props) {
               }
               console.log(board);
               // mutation 실행
-             // peopleMutation.mutate(board)
+              boardMutation.mutate(board)
             }}
             disabled={!( isEmail && isPassword )}
             >Join</button>
