@@ -1,6 +1,6 @@
 .board{
   width: 100%;
-  max-width: 1200px;
+  max-width: 700px;
   margin: 0 auto;
   border: 1px solid #dbdbdb;
   background-color: white;
@@ -27,10 +27,17 @@
 }
 .board .b_head .time {
   position: absolute;
-  right: 80px;
+  right: 130px;
   top: 20px;
 }
-.board .b_head button {
+.board .b_head .b_update {
+  position: absolute;
+  right: 70px;
+  width: 50px;
+  top: 20px;
+  cursor: pointer;
+}
+.board .b_head .b_delete {
   position: absolute;
   right: 10px;
   width: 50px;
@@ -52,6 +59,9 @@ border-top: 1px solid #dbdbdb;
   margin-left: 10px;
   font-size: 25px;
 }
+.b_container .b_content .b_img{
+  text-align: center;
+}
 .b_container .b_comment{
   display: flex;
   flex-direction: column;
@@ -62,9 +72,8 @@ border-top: 1px solid #dbdbdb;
 }
 .b_container .b_comment .commnet span{
  text-align: left;
-
-
 }
+
 .bt_up {
   border-radius:50% ;
   padding: 0;

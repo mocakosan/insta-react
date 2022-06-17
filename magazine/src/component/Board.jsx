@@ -11,8 +11,9 @@ import {  useSelector,useDispatch } from 'react-redux';
 //import {setBoard} from "../redux/module/boardSlice";
 //import {getBoard} from "../recoil/store";
 import {useRecoilState,useRecoilValue} from "recoil";
-import {useQuery} from "react-query";
+import {useQuery,useMutation,useQueryClient} from "react-query";
 import {board} from "../recoil/store";
+import api from '../utils/api';
 
 
 function Board(props) {
@@ -52,6 +53,19 @@ function Board(props) {
       }
     });
     console.log(board_query);
+
+  const boardidMutation = useMutation(
+      (board_id) => api.delete(`http://3.35.233.99/api/board/${board_id}`), {
+        onSuccess: () => {
+          
+          
+          queryClient.invalidateQueries("board_list")
+        }
+      });
+  const queryClient = useQueryClient();
+  const onDelete = async (board_id) => {
+    boardidMutation.mutate(board_id);
+  }
   return (
 
     <div className='post'>
@@ -69,8 +83,9 @@ function Board(props) {
               
               <span className='time'>{e.createdAt}</span>
               <Link to='/BoardUpdate'>
-                <button>수정</button>
+                <button className='b_update'>수정</button>
               </Link>
+                <button className='b_delete' onClick={()=>onDelete(e.board_id)}>삭제</button>
             </div>
             <div className='b_content' style={{flexDirection:e.layout===1?'column':e.layout===2?'row':'row-reverse'}}>
               <div className='b_img'>

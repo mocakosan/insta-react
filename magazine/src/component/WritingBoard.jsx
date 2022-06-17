@@ -15,9 +15,9 @@ import api from '../utils/api';
 
 
 function WritingBoard(props) {
-  const tokenUse = useRecoilValue(tokenState);
+  // const tokenUse = useRecoilValue(tokenState);
 
-  const writeToken = useSetRecoilState(tokenState);
+  // const writeToken = useSetRecoilState(tokenState);
 
   
   const [layout,setlayout] = useState(0);
@@ -42,7 +42,7 @@ function WritingBoard(props) {
     formData.append( "layout",layout);
     formData.append( "content",content_ref.current.value );
     boardsMutation.mutate(formData)
-
+    
   }
 
 
