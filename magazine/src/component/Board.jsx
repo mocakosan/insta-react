@@ -72,25 +72,32 @@ function Board(props) {
                 <button>수정</button>
               </Link>
             </div>
-            <div className='b_img'>
-                <Link to='/BoardDetail'>
-                  <img src={e.imageLink} alt="" width="300px"/>
-                </Link>
+            <div className='b_content' style={{flexDirection:e.layout===1?'column':e.layout===2?'row':'row-reverse'}}>
+              <div className='b_img'>
+                  <Link to='/BoardDetail'>
+                    <img src={e.imageLink} alt="" width="600px"/>
+                  </Link>
+                  
+              </div>
+              <div className='b_comment'>
+                    <div className='comment'>
+                      <span>{e.content}</span>
+                    </div>
+                </div>
+              
             </div>
             <div className='b_container'>
-                {/* analytic */}
-                <div className='b_an'>
-                  <img className='like' src={love} alt="" />
-                  <span>좋아요</span>
-                </div>
-                <div className='b_comment'>
-                  <div>{e.content}</div>
-                </div>
-            </div>
+                  {/* analytic */}
+                  <div className='b_an'>
+                    <img className='like' src={love} alt="" />
+                    <span>좋아요</span>
+                  </div>
+                  
+              </div>
       </div>
         ))
       ):null}
-        <Link to="/BoardWrite">
+        <Link to="/WritingBoard">
         <button className='bt_up' type='button'>
           <img className='up' src={up} alt="" /> 
         </button>

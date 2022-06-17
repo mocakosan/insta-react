@@ -12,5 +12,28 @@
 .bw textarea {
   width: 300px;
 }
-
+.bw .layout {
+  display: flex;
   
+}
+.bw .layout .b_content1{
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  width: 400px;
+  border: 1px solid #dbdbdb;
+}
+.bw .layout .b_content2{
+  display: flex;
+  flex-direction: row;
+  margin-left: 50px;
+  width: 400px;
+  border: 1px solid #dbdbdb;
+}
+.bw .layout .b_content3{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-left: 50px;
+  width: 400px;
+  border: 1px solid #dbdbdb;
+}

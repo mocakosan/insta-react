@@ -58,6 +58,12 @@ border-top: 1px solid #dbdbdb;
   margin: 5px;
   margin-left: 40px;
   font-size: 20px;
+  
+}
+.b_container .b_comment .commnet span{
+ text-align: left;
+
+
 }
 .bt_up {
   border-radius:50% ;
@@ -76,4 +82,7 @@ border-top: 1px solid #dbdbdb;
   right: 350px;
   position: fixed;
   bottom: 0;
+}
+.board .b_content {
+  display: flex;
 }
