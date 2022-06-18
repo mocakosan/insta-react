@@ -5,6 +5,11 @@ import love from '../images/love.svg';
 import { Link } from 'react-router-dom';
 
 function BoardNav(props) {
+
+  const onLogout =  ()=>{
+    localStorage.clear();
+   
+  }
   return (
     <div className='bn'>
       <div className='bn_bar'>
@@ -21,7 +26,7 @@ function BoardNav(props) {
           <button className='bt_lg'>로그인</button>
         </Link>
         <Link to="/">
-          <button className='bt_lo'>로그아웃</button>
+          <button className='bt_lo' onClick={onLogout}>로그아웃</button>
         </Link>
       </div>
     </div>

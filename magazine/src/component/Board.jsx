@@ -6,7 +6,7 @@ import post from '../images/post.jpg';
 import love from '../images/love.svg';
 import up from '../images/up.png';
 import axios from "axios";
-import { Link ,useNavigate} from 'react-router-dom';
+import { Link ,Navigate,useNavigate} from 'react-router-dom';
 import {  useSelector,useDispatch } from 'react-redux';
 //import {setBoard} from "../redux/module/boardSlice";
 //import {getBoard} from "../recoil/store";
@@ -63,8 +63,13 @@ function Board(props) {
         }
       });
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const onDelete = async (board_id) => {
     boardidMutation.mutate(board_id);
+  }
+  const onUpdate = async (e) => {
+    boardidMutation.mutate(e);
+    navigate('/BoardUpdate',{state:{board:e}})
   }
   return (
 
@@ -82,9 +87,9 @@ function Board(props) {
               <span className='UN'>{e.userNickname}</span>
               
               <span className='time'>{e.createdAt}</span>
-              <Link to='/BoardUpdate'>
-                <button className='b_update'>수정</button>
-              </Link>
+              
+                <button className='b_update' onClick={()=>onUpdate(e)}>수정</button>
+              
                 <button className='b_delete' onClick={()=>onDelete(e.board_id)}>삭제</button>
             </div>
             <div className='b_content' style={{flexDirection:e.layout===1?'column':e.layout===2?'row':'row-reverse'}}>

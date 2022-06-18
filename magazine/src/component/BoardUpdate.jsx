@@ -1,11 +1,11 @@
 import React,{useRef,useState} from 'react';
 import BoardNav from './BoardNav';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import "../css/BoardWrite.css";
 import insta from '../images/insta.png';
 
 //import {createBoard} from "../redux/module/boardSlice";
-import {useMutation,useQueryClient} from "react-query";
+import {useMutation,useQueryClient,useQuery} from "react-query";
 import { tokenState } from '../recoil/store';
 import {useSetRecoilState,useRecoilValue} from "recoil";
 import axios from 'axios';
@@ -19,38 +19,51 @@ function WritingBoard(props) {
 
   // const writeToken = useSetRecoilState(tokenState);
 
-  
+  const locate = useLocation();
   const [layout,setlayout] = useState(0);
   let navigate = useNavigate();
-  const [image, setImage] = useState({ image_file: "", preview_URL: "img/default_img.png", });
+  const [image, setImage] = useState({ image_file: "", preview_URL:locate.state.board.imageLink, });
+  console.log(locate.state.board.imageLink);
   
   const queryClient = useQueryClient();
   const content_ref = useRef();
+  
+  
   const boardsMutation = useMutation(
-    (board_id) => api.post(`http://3.35.233.99/api/board/${board_id}`), {
-      onSuccess: () => {
+    (board_id,formData) => api.put(`http://3.35.233.99/api/board/${board_id}`,formData), {
+      onSuccess: (data) => {
         
-        
+        console.log(data);
         queryClient.invalidateQueries("board_list")
+        
       }
     });
+    
+    
   const onUpdate = async () => {
 
-    console.log(layout);
+     
+     const board_id = locate.state.board.board_id
+    
+    
     const formData = new FormData(); 
     formData.append("image", image.image_file); 
     formData.append( "layout",layout);
     formData.append( "content",content_ref.current.value );
-    boardsMutation.mutate(formData)
-    
+    boardsMutation.mutate(board_id,formData)
+    console.log(boardsMutation);
   }
 
 
 
   return (
+    
+   <div>
+    
     <div className="bw">
       <BoardNav />
       <h1>게시물 작성</h1>
+     
       <input type="file" accept="image/*"  onChange={(e)=>{
         e.preventDefault();
         const fileReader = new FileReader();
@@ -63,11 +76,27 @@ function WritingBoard(props) {
             preview_URL: fileReader.result,
           });
         };
-      }}/>
-      
+      }}></input>
+      <h1>불러온 레이아웃</h1>
+      <label htmlFor='1'>
+        <input id='1' type="radio" name='layout' value={locate.state.board.layout} onClick={(e)=>{
+          setlayout(e.target.value);
+        }}/>
+          <div className='b_content1' >
+                  <div className='b_img'>
+                      <img src={insta} alt="" width="200px"/>
+                  </div>
+                  <div className='b_comment'>
+                        <div className='comment'>
+                          <span>내용</span>
+                        </div>
+                  </div>
+          </div>
+        </label>
 
       <h1>레이아웃 선택</h1>
       <div className='layout'>
+        
         <label htmlFor='1'>
         <input id='1' type="radio" name='layout' value='1' onClick={(e)=>{
           setlayout(e.target.value);
@@ -118,12 +147,13 @@ function WritingBoard(props) {
       
         
       <p>게시글 내용</p>
-      <textarea ref={content_ref}></textarea>
+      <textarea ref={content_ref}>{locate.state.board.content}</textarea>
 
       
       
       <button onClick={onUpdate}>수정하기</button>
       
+    </div>
     </div>
   );
 }

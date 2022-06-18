@@ -124,7 +124,7 @@ function Join(props) {
             type="submit"
             onClick={()=>{
               const board = {
-                age: nickname_ref.current.value,
+                nickname: nickname_ref.current.value,
                 email: email_ref.current.value,
                 password: password_ref.current.value,
               }
