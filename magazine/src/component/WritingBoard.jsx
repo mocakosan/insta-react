@@ -5,7 +5,7 @@ import "../css/BoardWrite.css";
 import insta from '../images/insta.png';
 
 //import {createBoard} from "../redux/module/boardSlice";
-import {useMutation} from "react-query";
+import {useMutation,use} from "react-query";
 import { tokenState } from '../recoil/store';
 import {useSetRecoilState,useRecoilValue} from "recoil";
 import axios from 'axios';
