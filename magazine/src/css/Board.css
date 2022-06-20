@@ -50,6 +50,14 @@ flex-direction: column;
 text-align: left;
 border-top: 1px solid #dbdbdb;
 }
+.b_container .b_an button{
+  cursor: pointer;
+  border: 0;
+  width: 25px;
+  height: 25px;
+ 
+  background-color: white;
+}
 .b_container img{
   width: 25px;
   height: 22px;

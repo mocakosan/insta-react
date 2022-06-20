@@ -12,8 +12,12 @@ import {  useSelector,useDispatch } from 'react-redux';
 //import {getBoard} from "../recoil/store";
 import {useRecoilState,useRecoilValue} from "recoil";
 import {useQuery,useMutation,useQueryClient} from "react-query";
-import {board} from "../recoil/store";
+import {board,tokenState} from "../recoil/store";
 import api from '../utils/api';
+import { jwtUtils } from '../utils/JwtUtils';
+import heart1 from '../images/heart1.png';
+import heart from '../images/heart.png';
+import { useEffect } from 'react';
 
 
 function Board(props) {
@@ -47,17 +51,27 @@ function Board(props) {
   
   const board_query = useQuery(
     ["board_list"],
-    () => axios.get("http://3.35.233.99/api/boards"),{
-      onSuccess: data => {
+    () => axios.get("http://3.35.233.99/api/boards",),{
+      onSuccess: (data) => {
         console.log("success", data);
+        
       }
     });
-    console.log(board_query);
-
+    
+    const boardHart= useMutation(
+      
+      (board_id) => api.get(`http://3.35.233.99/api/board/${board_id}/like`),{
+        onSuccess: (board_id) => {
+          
+           
+          queryClient.invalidateQueries("board_list")
+        
+      }});
+  const boardId = useQuery()
+  const board = useQuery()
   const boardidMutation = useMutation(
       (board_id) => api.delete(`http://3.35.233.99/api/board/${board_id}`), {
-        onSuccess: () => {
-          
+        onSuccess: (board_id) => {
           
           queryClient.invalidateQueries("board_list")
         }
@@ -68,11 +82,38 @@ function Board(props) {
     boardidMutation.mutate(board_id);
   }
   const onUpdate = async (e) => {
-    boardidMutation.mutate(e);
+    
     navigate('/BoardUpdate',{state:{board:e}})
   }
-  return (
+  const tokenUse = useRecoilValue(tokenState);
+  const [token, setToken] = useState(false);
+  
 
+  
+  const [like,setLike] = useState(false)
+  // useEffect((board_list) => { 
+  //   if (jwtUtils.isAuth(tokenUse)) { 
+  //     const userid = jwtUtils.getId(tokenUse); 
+      
+  //     setToken(true); 
+  //     const isUserid =board_list.likes.filter((id) => {
+  //        return id.user_email === userid; }); 
+         
+  //        setLike(isUserid && isUserid.length > 0 ? true : false); 
+  //        } 
+  //   else 
+  //     setToken(false); 
+  //   }, [tokenUse]);
+  const onhart = async (board_id) => {
+    console.log(board_id);
+    boardHart.mutate(board_id);
+    setLike(!like)
+    
+  }
+
+       
+  return (
+    
     <div className='post'>
       <BoardNav/>
       {board_query.isSuccess ? (
@@ -109,8 +150,9 @@ function Board(props) {
             <div className='b_container'>
                   {/* analytic */}
                   <div className='b_an'>
-                    <img className='like' src={love} alt="" />
-                    <span>좋아요</span>
+                    <button  onClick={()=>onhart(e.board_id)}><img src={like?heart:heart1}/></button>
+                    
+                    <span style={{fontSize:"20px"}}>{e.likes.length}</span>
                   </div>
                   
               </div>

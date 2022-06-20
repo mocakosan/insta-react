@@ -28,8 +28,8 @@ function WritingBoard(props) {
   const content_ref = useRef();
   const boardsMutation = useMutation(
     (data) => api.post("http://3.35.233.99/api/board", data), {
-      onSuccess: (token) => {
-        console.log(token);
+      onSuccess: () => {
+        
         
         navigate('/');
       }
@@ -72,7 +72,7 @@ function WritingBoard(props) {
         <input id='1' type="radio" name='layout' value='1' onClick={(e)=>{
           setlayout(e.target.value);
         }}/>
-          <div className='b_content1' >
+          <div className='b_content1'style={{display:"flex",flexDirection:"column"}} >
                   <div className='b_img'>
                       <img src={insta} alt="" width="200px"/>
                   </div>
@@ -87,7 +87,7 @@ function WritingBoard(props) {
         <input id='2' type="radio" value='2' name='layout' onClick={(e)=>{
           setlayout(e.target.value);
         }}/>
-          <div className='b_content2' >
+          <div className='b_content2' style={{display:"flex",flexDirection:"row"}}>
                   <div className='b_img'>
                       <img src={insta} alt="" width="200px"/>
                   </div>
@@ -102,7 +102,7 @@ function WritingBoard(props) {
         <input id='3' type="radio" value='3' name='layout' onClick={(e)=>{
           setlayout(e.target.value);
         }}/>
-          <div className='b_content3' >
+          <div className='b_content3' style={{display:"flex",flexDirection:"row-reverse"}}>
                   <div className='b_img'>
                       <img src={insta} alt="" width="200px"/>
                   </div>

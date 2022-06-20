@@ -15,6 +15,7 @@ instance.interceptors.request.use(
     // 서버측 미들웨어에서 이를 확인하고 검증한 후 해당 API에 요청함.
     const tokenState = JSON.parse(localStorage.getItem("recoil-persist"));
     const token = tokenState["tokenState"];
+    console.log(token);
     try {
       if (token && jwtUtils.isAuth(token)) {
         config.headers["X-AUTH-TOKEN"] = `${token}`;
