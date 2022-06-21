@@ -22,4 +22,8 @@ export class jwtUtils {
     const decoded = jwtDecode(token);
     return decoded.user_name;
   }
+  static getUserEmail(token) {
+    const decoded = jwtDecode(token);
+    return decoded.sub;
+  }
 }
